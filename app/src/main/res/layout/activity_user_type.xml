@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserType"
+    android:background="@color/white">
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView"
+        android:layout_width="314dp"
+        android:layout_height="92dp"
+        android:layout_marginTop="96dp"
+        android:fontFamily="@font/abeezee"
+        android:gravity="center"
+        android:text="Who Uses this Device?"
+        android:textColor="#155B80"
+        android:textSize="43dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/Parent"
+        android:layout_width="260dp"
+        android:layout_height="222dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="70dp"
+        android:translationZ="4dp"
+        app:cardCornerRadius="18dp"
+        app:cardElevation="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.105"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/card_border"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/women_img"
+                android:layout_width="128dp"
+                android:layout_height="132dp"
+                android:src="@drawable/woman"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="128dp"
+                android:layout_height="132dp"
+                android:src="@drawable/man"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/women_img"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/parent_btn"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/login_button"
+                android:fontFamily="@font/abeezee"
+                android:text="Parent"
+                android:textStyle="bold"
+                android:textSize="25dp"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.505"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/Child"
+        android:layout_width="260dp"
+        android:layout_height="222dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="65dp"
+        app:cardCornerRadius="18dp"
+        app:cardElevation="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.898"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/card_border"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/boy_img"
+                android:layout_width="128dp"
+                android:layout_height="132dp"
+                android:src="@drawable/boy"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="128dp"
+                android:layout_height="132dp"
+                android:src="@drawable/girl"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/boy_img"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/child_btn"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/login_button"
+                android:fontFamily="@font/abeezee"
+                android:text="Child"
+                android:textStyle="bold"
+                android:textSize="25dp"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.505"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

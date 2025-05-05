@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="12dp"
+    android:layout_margin="24dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent">
+
+        <CheckBox
+            android:id="@+id/permission_check"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginTop="36dp"
+            android:layout_marginLeft="20dp"
+            app:layout_constraintEnd_toStartOf="@id/head_txt"
+            app:layout_constraintHorizontal_bias="0.709"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/head_txt"
+            android:layout_width="315dp"
+            android:layout_height="63dp"
+            android:layout_marginTop="36dp"
+            android:layout_marginLeft="30dp"
+            android:fontFamily="@font/abeezee"
+            android:lineHeight="22dp"
+            android:text="I have read all the information and terms carefully"
+            android:textColor="@color/text_color_dark"
+            android:textSize="18dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.653"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/locatin_icon"
+            android:layout_width="60dp"
+            android:layout_marginLeft="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="52dp"
+            android:src="@drawable/location2"
+            app:layout_constraintEnd_toStartOf="@id/info_txt"
+            app:layout_constraintHorizontal_bias="0.888"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/permission_check" />
+
+        <TextView
+            android:id="@+id/info_txt"
+            android:layout_width="254dp"
+            android:layout_height="61dp"
+            android:fontFamily="@font/abeezee"
+            android:layout_marginTop="20dp"
+            android:text="Allow the location permission for all the time so child location is accessible all the time"
+            android:textAlignment="textStart"
+            android:lineHeight="18dp"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.634"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/head_txt"
+            app:layout_constraintWidth_percent="0.6" />
+
+        <ImageView
+            android:id="@+id/app_icon"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/apps"
+            app:layout_constraintBottom_toTopOf="@id/allow_btn"
+            app:layout_constraintEnd_toStartOf="@id/app_info_txt"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/locatin_icon"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/app_info_txt"
+            android:layout_width="254dp"
+            android:layout_height="61dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/abeezee"
+            android:layout_marginLeft="10dp"
+            android:lineHeight="18dp"
+            android:text="Allow the application for the accessiblity service to set app time limit"
+            android:textAlignment="textStart"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.62"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/info_txt"
+            app:layout_constraintWidth_percent="0.6" />
+
+        <ImageView
+            android:id="@+id/usage_icon"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginBottom="40dp"
+            android:src="@drawable/usage"
+            app:layout_constraintBottom_toTopOf="@id/allow_btn"
+            app:layout_constraintEnd_toStartOf="@id/app_info_txt"
+            app:layout_constraintHorizontal_bias="0.9"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/app_icon"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/package_txt"
+            android:layout_width="254dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginLeft="20dp"
+            android:fontFamily="@font/abeezee"
+            android:lineHeight="18dp"
+            android:text="Allow the application to access the app usage statistics. Enable the Usage Access Permission to the application"
+            android:textAlignment="textStart"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.62"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/app_info_txt"
+            app:layout_constraintWidth_percent="0.6" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/allow_btn"
+            android:layout_width="312dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="52dp"
+            android:fontFamily="@font/abeezee"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/login_button"
+            android:text="Allow all Permissions"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.619"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/info_txt"
+            app:layout_constraintVertical_bias="1.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>

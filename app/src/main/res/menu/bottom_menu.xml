@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/first_frag"
+        android:title="Home"
+        android:icon="@drawable/home_24"/>
+
+    <item
+        android:id="@+id/second_frag"
+        android:title="Location"
+        android:icon="@drawable/marker_24"/>
+
+    <item
+        android:id="@+id/third_frag"
+        android:title="Apps"
+        android:icon="@drawable/home_24"/>
+
+    <item
+        android:id="@+id/fourth_frag"
+        android:title="Profile"
+        android:icon="@drawable/marker_24"/>
+</menu>

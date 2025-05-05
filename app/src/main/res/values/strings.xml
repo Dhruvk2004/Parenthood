@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ParentHood</string>
+    <string name="default_web_client_id">920213616889-dt3jmfbei6is7tvf7qni4mlsh05vdfkp.apps.googleusercontent.com</string>
+    <string name="google_maps_api_key">AIzaSyD70Xp36MbJ3aREpZYDHmcbgAXar4-c4SM</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="accessibility_service_description">This service monitors app usage to enforce time limits.</string>
+</resources>
+

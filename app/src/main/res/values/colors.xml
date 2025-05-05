@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="lavendar_1">#b892dd</color>
+    <color name="lavendar_2">#c6a3e6</color>
+    <color name="light_blue">#6dccde</color>
+    <color name="sky_blue">#5abed6</color>
+    <color name="dark_blue">#347ea4</color>
+    <color name="grey">#A39898</color>
+    <color name="text_color_dark">#155B80</color>
+    <color name="geofence_fill">#7033A9F4</color>
+    <color name="card_fill">#E3F2FD</color>
+    <color name="red">#B31212</color>
+    <color name="green">#2CBC05</color>
+    <color name="light_lavendar">#FEECE2</color>
+</resources>

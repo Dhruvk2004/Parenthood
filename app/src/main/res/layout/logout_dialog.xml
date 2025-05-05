@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="350dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="12dp"
+    android:layout_margin="24dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent">
+
+        <TextView
+            android:id="@+id/head_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/abeezee"
+            android:text="Are You Sure ?"
+            android:textColor="@color/text_color_dark"
+            android:textSize="35dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/scan_img"
+            android:layout_width="149dp"
+            android:layout_height="153dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="104dp"
+            android:src="@drawable/logout_dialog_img"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/info_txt"
+            android:layout_width="143dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginRight="30dp"
+            android:fontFamily="@font/abeezee"
+            android:text="You want to logout."
+            android:textAlignment="center"
+            android:textColor="@color/sky_blue"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.3"
+            app:layout_constraintStart_toEndOf="@+id/scan_img"
+            app:layout_constraintTop_toBottomOf="@+id/head_txt"
+            app:layout_constraintWidth_percent="0.6" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/cancel_btn"
+            android:layout_width="140dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="52dp"
+            android:layout_marginRight="90dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/google_button"
+            android:text="Cancel"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.191"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/head_txt"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/yes_btn"
+            android:layout_width="140dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/login_button"
+            android:text="Yes"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.921"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/info_txt" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</androidx.cardview.widget.CardView>

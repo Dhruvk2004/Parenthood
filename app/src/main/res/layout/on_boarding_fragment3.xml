@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/sky_blue">
+
+    <ImageView
+        android:layout_width="269dp"
+        android:layout_height="337dp"
+        android:layout_marginStart="32dp"
+        android:src="@drawable/track_location"
+        app:layout_constraintBottom_toTopOf="@+id/frag1_title1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.641" />
+
+    <TextView
+        android:id="@+id/skip_bt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="36dp"
+        android:text="Skip"
+        android:fontFamily="@font/abeezee"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/dark_blue"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/frag1_title1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="380dp"
+        android:fontFamily="@font/abeezee"
+        android:text="Track"
+        android:textColor="@color/dark_blue"
+        android:textSize="32sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/frag1_title2"
+        android:layout_width="335dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="424dp"
+        android:fontFamily="@font/abeezee"
+        android:text="with Precision"
+        android:textColor="@color/dark_blue"
+        android:textSize="43sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/frag1_subtext"
+        android:layout_width="236dp"
+        android:layout_height="82dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:text="View your child's whereabouts in real-time and set safe zones. Peace of mind wherever they go."
+        android:textAlignment="viewStart"
+        android:textColor="@color/dark_blue"
+        android:textSize="13sp"
+        android:fontFamily="@font/abeezee"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frag1_title2" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="76dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="64dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frag1_subtext"
+        app:srcCompat="@drawable/slider3" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeFragment"
+    android:background="@color/white">
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/semi_circle_profile"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/notifcation"
+        android:padding="15dp"
+        android:scaleType="centerInside"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/welcome_text"
+        android:layout_width="190dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="60dp"
+        android:fontFamily="@font/abeezee"
+        android:text="Hello!"
+        android:textColor="@color/dark_blue"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/name_label"
+        android:layout_width="304dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="104dp"
+        android:fontFamily="@font/abeezee"
+        android:text=""
+        android:textColor="@color/sky_blue"
+        android:textSize="33dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.149"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/no_child_image"
+        android:layout_width="204dp"
+        android:layout_height="147dp"
+        android:layout_marginTop="84dp"
+        android:visibility="gone"
+        android:src="@drawable/no_child_img"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/name_label" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/no_child_profile_text"
+        android:layout_width="340dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/abeezee"
+        android:gravity="center"
+        android:visibility="gone"
+        android:text="No child profile connected"
+        android:textColor="@color/text_color_dark"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.605"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/no_child_image" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/add_child_btn"
+        android:layout_width="213dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="4dp"
+        android:visibility="gone"
+        android:background="@drawable/login_button"
+        android:fontFamily="@font/abeezee"
+        android:text="Add Child Device"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="22dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/no_child_profile_text" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/child_head"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/abeezee"
+        android:text="Connected Child"
+        android:textColor="@color/text_color_dark"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/name_label" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/addchild_card"
+        android:layout_width="370dp"
+        android:layout_height="85dp"
+        android:visibility="gone"
+        android:layout_marginTop="10dp"
+        android:stateListAnimator="@animator/click_effect"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="60dp"
+        android:translationZ="4dp"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.105"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/child_head">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/addchild_icon"
+                android:layout_width="75dp"
+                android:layout_marginLeft="20dp"
+                android:layout_height="65dp"
+                android:src="@drawable/boy"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Spinner
+                android:id="@+id/child_id_spinner"
+                android:layout_width="245dp"
+                android:layout_height="60dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.511"
+                app:layout_constraintStart_toEndOf="@+id/addchild_icon"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.4" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/child_info_head"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/abeezee"
+        android:text="Child Device Info"
+        android:textColor="@color/dark_blue"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/card_bg_id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.043"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/child_head"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/card_bg_id"
+        android:layout_width="match_parent"
+        android:layout_height="490dp"
+        android:layout_marginTop="50dp"
+        android:visibility="gone"
+        android:background="@drawable/card_bg"
+        app:layout_constraintTop_toBottomOf="@id/addchild_card"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/app_time_card"
+        android:layout_width="350dp"
+        android:layout_height="85dp"
+        android:visibility="gone"
+        android:layout_marginTop="50dp"
+        android:stateListAnimator="@animator/click_effect"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:translationZ="4dp"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintTop_toTopOf="@id/card_bg_id"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/time_icon"
+                android:layout_width="85dp"
+                android:layout_marginLeft="20dp"
+                android:layout_height="75dp"
+                android:src="@drawable/clock"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/screen_time_txt"
+                android:layout_width="200dp"
+                android:layout_height="20dp"
+                android:text="Total Screen Time"
+                android:fontFamily="@font/abeezee"
+                android:textColor="@color/dark_blue"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/time_icon"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/time_value_txt"
+                android:layout_width="200dp"
+                android:layout_height="20dp"
+                android:text=""
+                android:textStyle="bold"
+                android:textSize="21dp"
+                android:fontFamily="@font/abeezee"
+                android:textColor="@color/dark_blue"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/time_icon"
+                app:layout_constraintTop_toBottomOf="@id/screen_time_txt" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/location_card"
+        android:layout_width="350dp"
+        android:layout_height="85dp"
+        android:visibility="gone"
+        android:layout_marginTop="30dp"
+        android:stateListAnimator="@animator/click_effect"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:translationZ="4dp"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintTop_toBottomOf="@id/app_time_card"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/location_icon"
+                android:layout_width="105dp"
+                android:layout_height="95dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/location"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/location_txt"
+                android:layout_width="200dp"
+                android:layout_height="20dp"
+                android:text="Current Location"
+                android:fontFamily="@font/abeezee"
+                android:textColor="@color/dark_blue"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/location_icon"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/place_txt"
+                android:layout_width="200dp"
+                android:layout_height="20dp"
+                android:text=""
+                android:textStyle="bold"
+                android:textSize="21dp"
+                android:fontFamily="@font/abeezee"
+                android:textColor="@color/dark_blue"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/location_icon"
+                app:layout_constraintTop_toBottomOf="@id/location_txt" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/total_app_limit_card"
+        android:layout_width="350dp"
+        android:layout_height="85dp"
+        android:visibility="gone"
+        android:layout_marginTop="30dp"
+        android:stateListAnimator="@animator/click_effect"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:translationZ="4dp"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintTop_toBottomOf="@id/location_card"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/geofence_icon"
+                android:layout_width="85dp"
+                android:layout_marginLeft="20dp"
+                android:layout_height="75dp"
+                android:src="@drawable/geofence"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/geofence_txt"
+                android:layout_width="200dp"
+                android:layout_height="20dp"
+                android:text="Total App Limits"
+                android:fontFamily="@font/abeezee"
+                android:textColor="@color/dark_blue"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/geofence_icon"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/total_limit_value_txt"
+                android:layout_width="200dp"
+                android:layout_height="25dp"
+                android:text=""
+                android:textStyle="bold"
+                android:textSize="21dp"
+                android:fontFamily="@font/abeezee"
+                android:textColor="@color/dark_blue"
+                android:layout_marginRight="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/geofence_icon"
+                app:layout_constraintTop_toBottomOf="@id/geofence_txt" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

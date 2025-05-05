@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:padding="0dp"
+    android:layout_margin="0dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/addchild_card"
+        android:layout_width="370dp"
+        android:layout_height="95dp"
+        android:visibility="visible"
+        android:layout_marginTop="20dp"
+        app:cardElevation="0dp"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="false"
+        android:stateListAnimator="@animator/click_effect"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="20dp"
+        android:translationZ="4dp"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.105"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/card_fill"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/geo_icon"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="16dp"
+                android:src="@drawable/geo_places_list_icon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.48" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/place_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/abeezee"
+                android:text="Home"
+                android:textColor="@color/text_color_dark"
+                android:textSize="22dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/geo_icon"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/location_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/abeezee"
+                android:text="Chembur"
+                android:textColor="@color/text_color_dark"
+                android:textSize="17dp"
+                app:layout_constraintStart_toEndOf="@id/geo_icon"
+                 app:layout_constraintTop_toBottomOf="@id/place_name"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/radius_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/abeezee"
+                android:text="Radius: 44 meters"
+                android:textColor="@color/text_color_dark"
+                android:textSize="15dp"
+                app:layout_constraintStart_toEndOf="@id/geo_icon"
+                app:layout_constraintTop_toBottomOf="@id/location_name" />
+
+
+            <ImageView
+                android:id="@+id/trash_icon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:padding="6dp"
+                android:background="@drawable/semi_circle_profile"
+                android:layout_marginEnd="4dp"
+                android:src="@drawable/trash_geo2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.355" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

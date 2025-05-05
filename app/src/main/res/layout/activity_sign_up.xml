@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignUpActivity"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="122dp"
+        android:layout_height="129dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/welcome_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:fontFamily="@font/abeezee"
+        android:text="Welcome! to Parenthood"
+        android:textColor="#155B80"
+        android:layout_marginTop="100dp"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/name_layout"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="370dp"
+        android:layout_height="84dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:hint="Name"
+        app:boxCornerRadiusBottomEnd="15dp"
+        app:boxCornerRadiusBottomStart="15dp"
+        app:boxCornerRadiusTopEnd="15dp"
+        app:boxCornerRadiusTopStart="15dp"
+        app:endIconMode="clear_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.384"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcome_txt"
+        app:startIconDrawable="@drawable/name_icon">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/signup_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/abeezee"
+            android:textSize="16sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/login_layout"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="370dp"
+        android:layout_height="84dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="40dp"
+        android:hint="E-Mail"
+        app:boxCornerRadiusBottomEnd="15dp"
+        app:boxCornerRadiusBottomStart="15dp"
+        app:boxCornerRadiusTopEnd="15dp"
+        app:boxCornerRadiusTopStart="15dp"
+        app:endIconMode="clear_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name_layout"
+        app:startIconDrawable="@drawable/ic_action_name">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/signup_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/abeezee"
+            android:textSize="16sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passwd_layout"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="370dp"
+        android:layout_height="84dp"
+        android:width="200sp"
+        android:height="80dp"
+        app:boxCornerRadiusTopStart="15dp"
+        app:boxCornerRadiusTopEnd="15dp"
+        app:boxCornerRadiusBottomStart="15dp"
+        app:boxCornerRadiusBottomEnd="15dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="40dp"
+        android:hint="Password"
+        app:endIconMode="password_toggle"
+        app:counterEnabled="true"
+        app:counterMaxLength="20"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_layout"
+        app:startIconDrawable="@drawable/pass_icon">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/signup_pass"
+            android:inputType="textPassword"
+            android:fontFamily="@font/abeezee"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/signup_bt"
+        android:layout_width="373dp"
+        android:layout_height="64dp"
+        android:layout_marginBottom="16dp"
+        android:width="200sp"
+        android:height="80dp"
+        android:background="@drawable/login_button"
+        android:fontFamily="@font/abeezee"
+        android:text="Sign Up"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:onClick="email_signup"
+        app:layout_constraintBottom_toTopOf="@id/or_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/passwd_layout"
+        app:layout_constraintVertical_bias="0.733" />
+
+    <TextView
+        android:id="@+id/or_text"
+        android:layout_width="46dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="190dp"
+        android:layout_marginBottom="13dp"
+        android:fontFamily="@font/abeezee"
+        android:text="Or"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@id/google_bt"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/google_bt"
+        android:layout_width="373dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="44dp"
+        android:width="200sp"
+        android:height="80dp"
+        android:background="@drawable/google_button"
+        android:drawableLeft="@drawable/google_xml"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:fontFamily="@font/abeezee"
+        android:text="Continue with Google"
+        android:onClick="google_signup"
+        android:textAllCaps="false"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/login_label_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/signup_bt"
+        app:layout_constraintVertical_bias="0.142" />
+
+    <TextView
+        android:id="@+id/login_label_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:fontFamily="@font/abeezee"
+        android:text="Already have an account, "
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.26"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/login_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:fontFamily="@font/abeezee"
+        android:onClick="call_login_page"
+        android:text="Log In"
+        android:textColor="@color/dark_blue"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/login_label_text" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
