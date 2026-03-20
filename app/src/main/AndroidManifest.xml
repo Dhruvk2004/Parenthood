@@ -27,25 +27,25 @@
         android:theme="@style/Theme.BoardingScreen"
         tools:targetApi="31">
         <activity
-            android:name=".ChildActivity"
+            android:name=".presentation.child.ChildActivity"
             android:exported="false" />
         <activity
-            android:name=".AskPermissions"
+            android:name=".presentation.auth.AskPermissions"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".presentation.auth.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".SignUpActivity"
+            android:name=".presentation.auth.SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".ParentActivity"
+            android:name=".presentation.parent.ParentActivity"
             android:exported="false" />
         <activity
-            android:name=".StartActivity"
+            android:name=".presentation.auth.UserType"
             android:exported="false" />
         <activity
-            android:name=".UserType"
+            android:name=".presentation.onboarding.StartActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -55,7 +55,7 @@
         </activity>
 
         <service
-            android:name=".AppUsageService"
+            android:name=".services.AppUsageService"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
             android:exported="true">
             <intent-filter>
@@ -67,18 +67,18 @@
         </service>
 
         <service
-            android:name=".UpdateLocationService"
+            android:name=".services.UpdateLocationService"
             android:enabled="true"
             android:exported="false"
             android:foregroundServiceType="location" />
 
         <service
-            android:name=".GeofenceEvent"
+            android:name=".services.GeofenceEvent"
             android:exported="false"
             android:enabled="true"/>
 
         <service
-            android:name=".MonitoringService"
+            android:name=".services.MonitoringService"
             android:enabled="true"
             android:exported="false" />
 
@@ -87,7 +87,7 @@
             android:resource="@array/preloaded_fonts" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyD70Xp36MbJ3aREpZYDHmcbgAXar4-c4SM" />
+            android:value="${MAPS_API_KEY}" />
     </application>
 
 </manifest>

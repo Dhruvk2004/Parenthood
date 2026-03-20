@@ -15,20 +15,23 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
 
-        // Load GitHub properties for GitHubPackages repository
-        val githubProperties = Properties()
-        githubProperties.load(FileInputStream(rootDir.resolve("github.properties")))
-
-        maven {
-            name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/Cuberto/liquid-swipe-android")
-            credentials {
-                username = githubProperties.getProperty("gpr.usr") ?: System.getenv("gpr")
-                password = githubProperties.getProperty("gpr.key") ?: System.getenv("GPR_API_KEY")
+        // GitHub Packages for liquid-swipe library
+        val githubPropertiesFile = File(rootDir, "github.properties")
+        if (githubPropertiesFile.exists()) {
+            val githubProperties = Properties()
+            githubProperties.load(githubPropertiesFile.inputStream())
+            
+            maven {
+                name = "GitHubPackages"
+                url = uri("https://maven.pkg.github.com/Cuberto/liquid-swipe-android")
+                credentials {
+                    username = githubProperties.getProperty("gpr.usr") ?: System.getenv("GPR_USER")
+                    password = githubProperties.getProperty("gpr.key") ?: System.getenv("GPR_API_KEY")
+                }
             }
         }
 
-        maven{
+        maven {
             url = uri("https://jitpack.io")
         }
     }
