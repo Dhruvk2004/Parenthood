@@ -58,6 +58,11 @@ class MapFragment : Fragment(), OnMapReadyCallback {
     private val circlesList = mutableListOf<Circle>()
     private var selectedLatLng: LatLng? = null
     private var selectedPlaceName: String? = null
+    
+    // For geofence preview
+    private var previewMarker: Marker? = null
+    private var previewCircle: Circle? = null
+    private var currentDialog: Dialog? = null
 
     private lateinit var viewModel: MapViewModel
 
@@ -152,7 +157,8 @@ class MapFragment : Fragment(), OnMapReadyCallback {
 
     private fun handleGeofenceAdded(geofence: GeofenceData) {
         Toast.makeText(requireContext(), "Geofence saved successfully", Toast.LENGTH_SHORT).show()
-        add_circle_and_zoom(geofence.location, geofence.radius, geofence.name)
+        // Just add the circle without zooming - user can use curr_location button to go back
+        add_circle(geofence.location, geofence.radius, geofence.name)
     }
 
     private fun handleGeofenceDeleted() {
@@ -245,6 +251,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         val dialog = Dialog(requireContext())
         dialog.setContentView(dialogView)
         dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        currentDialog = dialog
         
         dialog.setOnShowListener {
             if (!Places.isInitialized()) {
@@ -260,20 +267,50 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         val seekbarRadius = dialog.findViewById<SeekBar>(R.id.radius_seekbar)
         val textviewRadiusValue = dialog.findViewById<TextView>(R.id.rad_txt)
         val buttonAdd = dialog.findViewById<Button>(R.id.save_btn)
+        val nameLayout = dialog.findViewById<View>(R.id.name_layout)
+        val autoCard = dialog.findViewById<View>(R.id.auto_card)
+        
+        // Get the root CardView to hide entire dialog
+        val rootCard = dialogView as? androidx.cardview.widget.CardView
 
         seekbarRadius.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 textviewRadiusValue.text = "Radius: ${progress}m"
+                // Update preview circle in real-time
+                if (selectedLatLng != null) {
+                    updatePreviewCircle(selectedLatLng!!, progress)
+                }
             }
 
-            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
-            override fun onStopTrackingTouch(seekBar: SeekBar?) {}
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {
+                // Hide entire dialog card except seekbar area
+                if (selectedLatLng != null) {
+                    rootCard?.setCardBackgroundColor(android.graphics.Color.TRANSPARENT)
+                    rootCard?.cardElevation = 0f
+                    nameLayout.visibility = View.INVISIBLE
+                    autoCard.visibility = View.INVISIBLE
+                    buttonAdd.visibility = View.INVISIBLE
+                    dialog.window?.setDimAmount(0f)
+                }
+            }
+            
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {
+                // Show everything again
+                rootCard?.setCardBackgroundColor(android.graphics.Color.WHITE)
+                rootCard?.cardElevation = 12f
+                nameLayout.visibility = View.VISIBLE
+                autoCard.visibility = View.VISIBLE
+                buttonAdd.visibility = View.VISIBLE
+                dialog.window?.setDimAmount(0.5f)
+            }
         })
 
         buttonAdd.setOnClickListener {
             val radius = seekbarRadius.progress
 
             if (selectedPlaceName != null && selectedLatLng != null && radius != 0 && placeName.text?.length != 0) {
+                // Remove preview before adding actual geofence
+                clearPreview()
                 viewModel.addGeofence(
                     placeName.text.toString(),
                     selectedPlaceName!!,
@@ -291,11 +328,55 @@ class MapFragment : Fragment(), OnMapReadyCallback {
             if (fragment != null) {
                 childFragmentManager.beginTransaction().remove(fragment).commit()
             }
+            clearPreview()
             selectedPlaceName = null
             selectedLatLng = null
+            currentDialog = null
         }
 
         dialog.show()
+    }
+    
+    private fun updatePreviewCircle(location: LatLng, radius: Int) {
+        // Remove existing preview circle
+        previewCircle?.remove()
+        
+        // Draw new preview circle
+        val circleOptions = CircleOptions()
+            .center(location)
+            .radius(radius.toDouble())
+            .strokeColor(ResourcesCompat.getColor(resources, R.color.dark_blue, null))
+            .fillColor(ResourcesCompat.getColor(resources, R.color.geofence_fill, null))
+            .strokeWidth(4f)
+        
+        previewCircle = gmap?.addCircle(circleOptions)
+        
+        // Adjust zoom based on radius
+        val zoomLevel = getZoomLevel(radius)
+        gmap?.animateCamera(CameraUpdateFactory.newLatLngZoom(location, zoomLevel))
+    }
+    
+    private fun showPreviewMarker(location: LatLng) {
+        // Remove existing preview marker
+        previewMarker?.remove()
+        
+        // Add preview marker
+        val markerOptions = MarkerOptions()
+            .position(location)
+            .icon(BitmapDescriptorFactory.fromBitmap(getBitmapFromDrawable(R.drawable.geo_location)!!))
+            .title("New Geofence")
+        
+        previewMarker = gmap?.addMarker(markerOptions)
+        
+        // Move camera to location
+        gmap?.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 15f))
+    }
+    
+    private fun clearPreview() {
+        previewMarker?.remove()
+        previewMarker = null
+        previewCircle?.remove()
+        previewCircle = null
     }
 
     private fun initializeAutocompleteFragment(fragmentManager: FragmentManager) {
@@ -317,6 +398,11 @@ class MapFragment : Fragment(), OnMapReadyCallback {
             override fun onPlaceSelected(place: Place) {
                 selectedPlaceName = place.name
                 selectedLatLng = place.latLng
+                
+                // Show preview marker and move map to selected location
+                place.latLng?.let { latLng ->
+                    showPreviewMarker(latLng)
+                }
             }
         })
     }

@@ -148,9 +148,6 @@ class MapViewModel(
                 )
 
                 _uiState.value = MapUiState.GeofenceAdded(geofenceData)
-                
-                // Reload child location to refresh the map
-                loadChildLocation()
             } catch (e: Exception) {
                 Log.e("MapViewModel", "Error adding geofence: ${e.message}")
                 _uiState.value = MapUiState.Error("Failed to save geofence: ${e.message}")
